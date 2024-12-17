@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="J3xhgoQPGNk_mZjrmg_Xxw2es16KxDihqgGdpxkM-QA" />
+    <meta name="google-site-verification" content="wBYGxLLPGcx5la702twlgUhLOwt7I5TIN7_KAQbxPxQ" />
+    <title>Interactive Study Plan Booklet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .book-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .book-image img {
+            width: 250px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .book-image img:hover {
+            transform: scale(1.1);
+        }
+
+        .booklet {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Prevent overflow */
+            flex: 1; /* Allow it to grow */
+        }
+
+        .left-panel {
+            flex: 1;
+            background: #53917E;
+            color: #000; /* Set text color to black */
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 80vh; /* Set maximum height for scrolling */
+        }
+
+        h1, h2 {
+            margin: 0 0 10px 0;
+            color: black; /* Set headings to black */
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            opacity: 0; /* Start invisible */
+            transition: opacity 0.5s ease; /* Fade effect */
+        }
+
+        .content h3 {
+            margin-top: 0;
+            color: black; /* Set week headings to black */
+        }
+
+        .content li {
+            color: black; /* Set day list items to black */
+        }
+
+        .footer-copy {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0; /* Remove margin */
+        }
+
+        .footer-copy p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .footer-copy a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-copy a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            padding: 0; /* Remove left and right padding from the container */
+        }
+
+        .branch {
+            cursor: pointer;
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            color: black; /* Set branch text color to black */
+        }
+
+        .branch:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .book-image img {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-image img {
+                width: 100px;
+            }
+
+            .left-panel {
+                padding: 15px;
+            }
+        }
+
+        
+.footer-copy {
+   background-color: #333;
+   color: #fff;
+   text-align: center;
+   padding: 20px;
+   position: fixed; /* Fixed footer */
+   bottom: 0;
+   width: 100%;
+   font-family: 'Open Sans', sans-serif;
+   margin-top: 30px; /* Adds space above the footer */
+}
+
+.footer-copy p {
+   margin: 0;
+   font-size: 16px;
+}
+
+.footer-copy a {
+   color: #007bff;
+   text-decoration: none;
+}
+
+.footer-copy a:hover {
+   text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="book-image">
+        <img src="./images/web-logo.png" alt="Book" onclick="showBooklet()">
+        <h2>Click here to Start</h2>
+    </div>
+
+    <div class="booklet">
+        <div class="left-panel">
+            <h1>Specific Course: Full-Stack Web Development</h1>
+            <p>This course provides an in-depth understanding of both front-end and back-end web development, including frameworks and database management.</p>
+            <h2>Course Highlights</h2>
+            <ul>
+                <li><strong>15 Days:</strong> Learn HTML, CSS, and JavaScript basics. 
+                    <br>     &nbsp;&nbsp;&nbsp;&nbsp;  <em>Outcome:</em> Build a personal website with essential features.</li>
+                <li><strong>1 Month:</strong> Gain foundational skills in front-end development. 
+                    <br>     &nbsp;&nbsp;&nbsp;&nbsp;  <em>Outcome:</em> Create a styled and interactive personal website.</li>
+                <li><strong>3 Months:</strong> Explore React and Node.js for full-stack development. 
+                    <br>     &nbsp;&nbsp;&nbsp;&nbsp;  <em>Outcome:</em> Develop a complete web application integrating front-end and back-end technologies.</li>
+                <li>         &nbsp;&nbsp;&nbsp;&nbsp;  Hands-on projects and real-world applications throughout the course.</li>
+                <li>         &nbsp;&nbsp;&nbsp;&nbsp; Understand RESTful APIs and database management with MongoDB for advanced topics.</li>
+            </ul>
+            
+            
+            <img src="./images/web_deveolopment_image.jpg" alt="Course Image" style="width: 100%; height: 300px; margin-bottom: 20px; border-radius: 5px;"> <!-- Course Image -->
+            <h2>Course Duration</h2>
+           
+            <div class="study-plan">
+                <h1>Comprehensive Learning Plan for HTML, CSS, and JavaScript</h1>
+        
+                <div class="branch" onclick="toggleContent('day15')">15 Days</div>
+                <div class="content" id="day15">
+                    <h3>Week 1: HTML Basics</h3>
+                    <ul>
+                        <li>Day 1: Introduction to HTML</li>
+                        <li>Day 2: Common HTML Tags</li>
+                        <li>Day 3: Embedding Media</li>
+                        <li>Day 4: HTML Forms</li>
+                        <li>Day 5: Semantic HTML</li>
+                        <li>Day 6: Project - Create a personal webpage using HTML</li>
+                    </ul>
+                    <h3>Week 2: CSS Basics</h3>
+                    <ul>
+                        <li>Day 7: Introduction to CSS</li>
+                        <li>Day 8: Box Model</li>
+                        <li>Day 9: Layout Techniques</li>
+                        <li>Day 10: Responsive Design</li>
+                        <li>Day 11: Flexbox Basics</li>
+                        <li>Day 12: Project - Style the personal webpage created in Week 1</li>
+                    </ul>
+                    <h3>Week 3: JavaScript Fundamentals</h3>
+                    <ul>
+                        <li>Day 13: Introduction to JavaScript</li>
+                        <li>Day 14: Control Structures</li>
+                        <li>Day 15: Functions</li>
+                    </ul>
+                </div>
+        
+                <div class="branch" onclick="toggleContent('month1')">1 Month</div>
+                <div class="content" id="month1">
+                    <h3>Week 1: HTML Fundamentals</h3>
+                    <ul>
+                        <li>Day 1: Introduction to HTML</li>
+                        <li>Day 2: Common HTML Tags</li>
+                        <li>Day 3: Embedding Media</li>
+                        <li>Day 4: HTML Forms</li>
+                        <li>Day 5: Semantic HTML</li>
+                        <li>Day 6: Project - Create a personal webpage using HTML</li>
+                    </ul>
+                
+                    <h3>Week 2: CSS Basics</h3>
+                    <ul>
+                        <li>Day 7: Introduction to CSS</li>
+                        <li>Day 8: Box Model</li>
+                        <li>Day 9: Layout Techniques</li>
+                        <li>Day 10: Responsive Design</li>
+                        <li>Day 11: Flexbox Basics</li>
+                        <li>Day 12: Project - Style the personal webpage created in Week 1</li>
+                    </ul>
+                
+                    <h3>Week 3: JavaScript Fundamentals</h3>
+                    <ul>
+                        <li>Day 13: Introduction to JavaScript</li>
+                        <li>Day 14: Control Structures</li>
+                        <li>Day 15: Functions</li>
+                        <li>Day 16: Arrays</li>
+                        <li>Day 17: Objects</li>
+                        <li>Day 18: Project - Create a JavaScript-driven interactive feature on your personal webpage</li>
+                    </ul>
+                
+                    <h3>Week 4: Advanced Topics</h3>
+                    <ul>
+                        <li>Day 19: Event Handling in JavaScript</li>
+                        <li>Day 20: AJAX and Fetch API</li>
+                        <li>Day 21: Introduction to Version Control</li>
+                        <li>Day 22: Best Practices for Web Development</li>
+                        <li>Day 23: Introduction to CSS Preprocessors (Sass, Less)</li>
+                        <li>Day 24: Responsive Frameworks (Bootstrap, Tailwind CSS)</li>
+                    </ul>
+                
+                    <h3>Week 5: Deployment and Hosting</h3>
+                    <ul>
+                        <li>Day 25: Overview of Deployment Options</li>
+                        <li>Day 26: Using GitHub Pages</li>
+                        <li>Day 27: Hosting on Netlify</li>
+                        <li>Day 28: Domain Names and DNS Basics</li>
+                        <li>Day 29: Best Practices for Deploying Web Applications</li>
+                        <li>Day 30: Final Review and Launch Your Project</li>
+                    </ul>
+                </div>
+                
+        
+                <div class="branch" onclick="toggleContent('month3')">3 Months</div>
+                <div class="content" id="month3">
+                    <h3>Month 1: Web Fundamentals</h3>
+                    <ul>
+                        <h3>Week 1: Introduction to HTML</h3>
+                        <ul>
+                            <li>Day 1: What is HTML?</li>
+                            <li>Day 2: Basic HTML Structure</li>
+                            <li>Day 3: Common HTML Tags (headings, paragraphs)</li>
+                            <li>Day 4: Embedding Images and Videos</li>
+                            <li>Day 5: Creating Forms (input, textarea, buttons)</li>
+                            <li>Day 6: Semantic HTML Elements (header, footer, article)</li>
+                        </ul>
+                
+                        <h3>Week 2: CSS Basics</h3>
+                        <ul>
+                            <li>Day 7: What is CSS?</li>
+                            <li>Day 8: Selectors and Properties</li>
+                            <li>Day 9: Understanding the Box Model</li>
+                            <li>Day 10: Layout Techniques (flexbox)</li>
+                            <li>Day 11: CSS Grid Basics</li>
+                            <li>Day 12: Responsive Design Principles</li>
+                        </ul>
+                
+                        <h3>Week 3: JavaScript Basics</h3>
+                        <ul>
+                            <li>Day 13: What is JavaScript?</li>
+                            <li>Day 14: Variables and Data Types</li>
+                            <li>Day 15: Control Structures (if, switch)</li>
+                            <li>Day 16: Functions and Scope</li>
+                            <li>Day 17: Arrays and Objects</li>
+                            <li>Day 18: Introduction to the DOM</li>
+                        </ul>
+                
+                        <h3>Week 4: Building a Personal Website</h3>
+                        <ul>
+                            <li>Day 19: Planning Your Website Structure</li>
+                            <li>Day 20: Designing Layouts with HTML and CSS</li>
+                            <li>Day 21: Implementing JavaScript Functionality</li>
+                            <li>Day 22: Adding Multimedia Elements</li>
+                            <li>Day 23: Finalizing Your Personal Website</li>
+                            <li>Day 24: Project - Create a personal website using HTML, CSS, and JavaScript</li>
+                        </ul>
+                    </ul>
+                
+                    <h3>Month 2: Intermediate Concepts</h3>
+                    <ul>
+                        <h3>Week 5: Advanced CSS Techniques</h3>
+                        <ul>
+                            <li>Day 25: CSS Transitions and Animations</li>
+                            <li>Day 26: Media Queries for Responsive Design</li>
+                            <li>Day 27: Using CSS Preprocessors (Sass)</li>
+                            <li>Day 28: Advanced Layouts with CSS Grid</li>
+                            <li>Day 29: CSS Frameworks Overview (Bootstrap, Tailwind)</li>
+                            <li>Day 30: Project - Create a responsive layout using advanced CSS techniques</li>
+                        </ul>
+                
+                        <h3>Week 6: JavaScript ES6 Features</h3>
+                        <ul>
+                            <li>Day 31: Understanding ES6 Syntax</li>
+                            <li>Day 32: Arrow Functions</li>
+                            <li>Day 33: Template Literals</li>
+                            <li>Day 34: Destructuring Assignment</li>
+                            <li>Day 35: Spread and Rest Operators</li>
+                            <li>Day 36: Promises and Async/Await</li>
+                        </ul>
+                
+                        <h3>Week 7: Introduction to Frameworks</h3>
+                        <ul>
+                            <li>Day 37: Overview of Frontend Frameworks</li>
+                            <li>Day 38: Getting Started with React</li>
+                            <li>Day 39: Components and Props in React</li>
+                            <li>Day 40: State and Lifecycle Methods in React</li>
+                            <li>Day 41: Building a Simple React App</li>
+                            <li>Day 42: Project - Create a mini React application</li>
+                        </ul>
+                
+                        <h3>Week 8: Building Interactive Web Applications</h3>
+                        <ul>
+                            <li>Day 43: Routing in React (React Router)</li>
+                            <li>Day 44: Fetching Data from APIs</li>
+                            <li>Day 45: Form Handling in React</li>
+                            <li>Day 46: Managing State with Context API</li>
+                            <li>Day 47: Best Practices for React Development</li>
+                            <li>Day 48: Project - Enhance your React application with advanced features</li>
+                        </ul>
+                    </ul>
+                
+                    <h3>Month 3: Advanced Topics and Deployment</h3>
+                    <ul>
+                        <h3>Week 9: API Integration</h3>
+                        <ul>
+                            <li>Day 49: Understanding RESTful APIs</li>
+                            <li>Day 50: Making API Calls with Fetch</li>
+                            <li>Day 51: Handling API Responses</li>
+                            <li>Day 52: Authentication and Authorization</li>
+                            <li>Day 53: Error Handling in API Calls</li>
+                            <li>Day 54: Project - Integrate a public API into your React app</li>
+                        </ul>
+                
+                        <h3>Week 10: Introduction to Version Control with Git</h3>
+                        <ul>
+                            <li>Day 55: What is Version Control?</li>
+                            <li>Day 56: Setting Up Git</li>
+                            <li>Day 57: Basic Git Commands (add, commit, push)</li>
+                            <li>Day 58: Branching and Merging</li>
+                            <li>Day 59: Collaborating with GitHub</li>
+                            <li>Day 60: Project - Use Git to manage your project repository</li>
+                        </ul>
+                
+                        <h3>Week 11: Deployment and Hosting</h3>
+                        <ul>
+                            <li>Day 61: Overview of Deployment Options</li>
+                            <li>Day 62: Using GitHub Pages</li>
+                            <li>Day 63: Hosting on Netlify</li>
+                            <li>Day 64: Domain Names and DNS Basics</li>
+                            <li>Day 65: Final Review and Launch Your Project</li>
+                            <li>Day 66: Project - Deploy your completed web application</li>
+                        </ul>
+                
+                        <h3>Week 12: Web Performance Optimization</h3>
+                        <ul>
+                            <li>Day 67: What is Web Performance?</li>
+                            <li>Day 68: Analyzing Website Performance (Lighthouse)</li>
+                            <li>Day 69: Minification and Compression</li>
+                            <li>Day 70: Lazy Loading Images and Content</li>
+                            <li>Day 71: Caching Strategies</li>
+                            <li>Day 72: Project - Optimize your web application for performance</li>
+                        </ul>
+                
+                        <h3>Week 13: Security Best Practices</h3>
+                        <ul>
+                            <li>Day 73: Understanding Web Security Basics</li>
+                            <li>Day 74: Common Web Vulnerabilities (XSS, CSRF)</li>
+                            <li>Day 75: Implementing HTTPS</li>
+                            <li>Day 76: Input Validation and Sanitization</li>
+                            <li>Day 77: Secure API Development</li>
+                            <li>Day 78: Project - Implement security measures in your application</li>
+                        </ul>
+                
+                        <h3>Week 14: Working with Databases</h3>
+                        <ul>
+                            <li>Day 79: Introduction to Databases</li>
+                            <li>Day 80: Relational vs Non-relational Databases</li>
+                            <li>Day 81: Setting Up a Local Database</li>
+                            <li>Day 82: CRUD Operations</li>
+                            <li>Day 83: Connecting a Database to Your Application</li>
+                            <li>Day 84: Project - Build a simple application with database integration</li>
+                        </ul>
+                
+                        <h3>Week 15: Final Projects and Review</h3>
+                        <ul>
+                            <li>Day 85: Choosing a Final Project Topic</li>
+                            <li>Day 86: Planning Your Final Project</li>
+                            <li>Day 87: Development Time</li>
+                            <li>Day 88: Peer Review and Feedback</li>
+                            <li>Day 89: Final Touches and Deployment</li>
+                            <li>Day 90: Presentation of Final Projects</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>                
+            </div>   
+            </div>
+       
+            <footer class="footer-copy">
+                <p >&copy; <span id="current-year"></span> AGM GROUPS. All Rights Reserved.</p>
+            </footer> 
+            <script>
+                const currentYear = new Date().getFullYear();
+                document.getElementById('current-year').textContent = currentYear;
+            </script>  
+    <script>
+        function showBooklet() {
+            document.querySelector('.book-image').style.display = 'none'; // Hide the book image
+            document.querySelector('.booklet').style.display = 'flex'; // Show the booklet
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const isVisible = content.style.display === 'block';
+
+            // Hide all contents
+            document.querySelectorAll('.content').forEach((el) => {
+                el.style.display = 'none';
+                el.style.opacity = 0; // Reset opacity for fade-in effect
+            });
+
+            if (!isVisible) {
+                content.style.display = 'block'; // Show the selected content
+                setTimeout(() => { // Allow time for display to take effect
+                    content.style.opacity = 1; // Fade in
+                }, 10);
+            }
+        }
+    </script>
+</body>
+</html>

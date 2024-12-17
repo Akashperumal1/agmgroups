@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="J3xhgoQPGNk_mZjrmg_Xxw2es16KxDihqgGdpxkM-QA" />
+    <meta name="google-site-verification" content="wBYGxLLPGcx5la702twlgUhLOwt7I5TIN7_KAQbxPxQ" />
+    <title>Interactive Study Plan Booklet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .book-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .book-image img {
+            width: 250px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .book-image img:hover {
+            transform: scale(1.1);
+        }
+
+        .booklet {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Prevent overflow */
+            flex: 1; /* Allow it to grow */
+        }
+
+        .left-panel {
+            flex: 1;
+            background: #53917E;
+            color: #000; /* Set text color to black */
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 80vh; /* Set maximum height for scrolling */
+        }
+
+        h1, h2 {
+            margin: 0 0 10px 0;
+            color: black; /* Set headings to black */
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            opacity: 0; /* Start invisible */
+            transition: opacity 0.5s ease; /* Fade effect */
+        }
+
+        .content h3 {
+            margin-top: 0;
+            color: black; /* Set week headings to black */
+        }
+
+        .content li {
+            color: black; /* Set day list items to black */
+        }
+
+        .footer-copy {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0; /* Remove margin */
+        }
+
+        .footer-copy p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .footer-copy a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-copy a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            padding: 0; /* Remove left and right padding from the container */
+        }
+
+        .branch {
+            cursor: pointer;
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            color: black; /* Set branch text color to black */
+        }
+
+        .branch:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .book-image img {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-image img {
+                width: 100px;
+            }
+
+            .left-panel {
+                padding: 15px;
+            }
+        }
+
+
+        .footer-copy {
+   background-color: #333;
+   color: #fff;
+   text-align: center;
+   padding: 20px;
+   position: fixed; /* Fixed footer */
+   bottom: 0;
+   width: 100%;
+   font-family: 'Open Sans', sans-serif;
+   margin-top: 30px; /* Adds space above the footer */
+}
+
+.footer-copy p {
+   margin: 0;
+   font-size: 16px;
+}
+
+.footer-copy a {
+   color: #007bff;
+   text-decoration: none;
+}
+
+.footer-copy a:hover {
+   text-decoration: underline;
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="book-image">
+        <img src="./images/c_image.png" alt="Book" onclick="showBooklet()">
+        <h2>Click here to Start</h2>
+    </div>
+
+    <div class="booklet">
+        <div class="left-panel">
+            <h1>Specific Course: C Development</h1>
+            <p>This course provides a comprehensive understanding of Java programming, covering core concepts to advanced topics, including data structures and database management with JDBC.</p>
+            <h2>Course Highlights</h2>
+            <ul>
+                <li><strong>15 Days:</strong> Learn Java basics and object-oriented programming.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Outcome:</em> Build a simple Java application showcasing core programming concepts.</li>
+                <li><strong>1 Month:</strong> Gain foundational skills in data structures and algorithms.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Outcome:</em> Implement various algorithms and data structures in Java.</li>
+                <li><strong>3 Months:</strong> Explore advanced topics such as JDBC, Spring framework, and project development.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Outcome:</em> Develop a complete Java application with database integration and advanced functionalities.</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;Hands-on projects and real-world applications throughout the course.</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;Understand the implementation of JDBC for database management and interaction.</li>
+            </ul>
+            
+            
+            
+            <img src="./images/c_logo.png" alt="Course Image" style="width: 100%; height: 300px; margin-bottom: 20px; border-radius: 5px;"> <!-- Course Image -->
+            <h2>Course Duration</h2>
+           
+            <div class="study-plan">
+                <h1>Comprehensive Learning Plan for Java</h1>
+            
+                <!-- 15 Days Plan -->
+                <div class="branch" onclick="toggleContent('day15')">15 Days</div>
+                <div class="content" id="day15">
+                    <h3>Week 1: Java Basics</h3>
+                    <ul>
+                        <li>Day 1: Introduction to Java and JVM</li>
+                        <li>Day 2: Setting up Java Development Environment (IDE)</li>
+                        <li>Day 3: Basic Syntax and Structure</li>
+                        <li>Day 4: Variables and Data Types</li>
+                        <li>Day 5: Control Flow (if, switch, loops)</li>
+                        <li>Day 6: Project - Simple Console Application</li>
+                    </ul>
+                    <h3>Week 2: Object-Oriented Programming (OOP)</h3>
+                    <ul>
+                        <li>Day 7: Introduction to OOP Concepts</li>
+                        <li>Day 8: Classes and Objects</li>
+                        <li>Day 9: Inheritance and Polymorphism</li>
+                        <li>Day 10: Encapsulation and Abstraction</li>
+                        <li>Day 11: Interfaces and Abstract Classes</li>
+                        <li>Day 12: Project - OOP-based Java Program</li>
+                    </ul>
+                    <h3>Week 3: Advanced Java Topics</h3>
+                    <ul>
+                        <li>Day 13: Exception Handling</li>
+                        <li>Day 14: File I/O in Java</li>
+                        <li>Day 15: Collections Framework</li>
+                    </ul>
+                </div>
+            
+                <!-- 1 Month (30 Days) Plan -->
+                <div class="branch" onclick="toggleContent('month1')">1 Month</div>
+                <div class="content" id="month1">
+                    <h3>Week 1: Java Fundamentals</h3>
+                    <ul>
+                        <li>Day 1: Introduction to Java and Setup</li>
+                        <li>Day 2: Basic Syntax and Variables</li>
+                        <li>Day 3: Control Structures (if, switch, loops)</li>
+                        <li>Day 4: Methods and Functions</li>
+                        <li>Day 5: Arrays and Strings</li>
+                        <li>Day 6: Project - Simple Calculator Application</li>
+                    </ul>
+            
+                    <h3>Week 2: Object-Oriented Programming</h3>
+                    <ul>
+                        <li>Day 7: Classes and Objects</li>
+                        <li>Day 8: Constructors and Overloading</li>
+                        <li>Day 9: Inheritance in Java</li>
+                        <li>Day 10: Polymorphism and Method Overriding</li>
+                        <li>Day 11: Interfaces and Abstract Classes</li>
+                        <li>Day 12: Project - Build a Java Library System</li>
+                    </ul>
+            
+                    <h3>Week 3: Exception Handling and File I/O</h3>
+                    <ul>
+                        <li>Day 13: Understanding Exceptions</li>
+                        <li>Day 14: Try, Catch, and Finally</li>
+                        <li>Day 15: Creating Custom Exceptions</li>
+                        <li>Day 16: File Reading and Writing in Java</li>
+                        <li>Day 17: Serialization and Deserialization</li>
+                        <li>Day 18: Project - Create a File-Based Student Management System</li>
+                    </ul>
+            
+                    <h3>Week 4: Advanced Java</h3>
+                    <ul>
+                        <li>Day 19: Java Collections Framework</li>
+                        <li>Day 20: List, Set, and Map Interfaces</li>
+                        <li>Day 21: Iterator and Streams API</li>
+                        <li>Day 22: Generics in Java</li>
+                        <li>Day 23: Lambda Expressions</li>
+                        <li>Day 24: Project - Develop a Java Application using Collections</li>
+                    </ul>
+            
+                    <h3>Week 5: Multi-threading and Concurrency</h3>
+                    <ul>
+                        <li>Day 25: Introduction to Multi-threading</li>
+                        <li>Day 26: Synchronization in Java</li>
+                        <li>Day 27: Thread Life Cycle</li>
+                        <li>Day 28: Executors and Callable Interface</li>
+                        <li>Day 29: Project - Multi-threaded Java Application</li>
+                        <li>Day 30: Final Review and Practice</li>
+                    </ul>
+                </div>
+            
+                <!-- 3 Month (90 Days) Plan -->
+                <div class="branch" onclick="toggleContent('month3')">3 Months</div>
+                <div class="content" id="month3">
+                    <h3>Month 1: Java Fundamentals</h3>
+                    <ul>
+                        <h3>Week 1: Java Basics</h3>
+                        <ul>
+                            <li>Day 1: Introduction to Java and Setting Up Environment</li>
+                            <li>Day 2: Variables and Data Types</li>
+                            <li>Day 3: Control Structures (if, else, switch)</li>
+                            <li>Day 4: Loops (for, while)</li>
+                            <li>Day 5: Functions and Methods</li>
+                            <li>Day 6: Operators and Expressions</li>
+                            <li>Day 7: Weekend Review/Practice</li>
+                        </ul>
+                
+                        <h3>Week 2: Object-Oriented Programming (OOP)</h3>
+                        <ul>
+                            <li>Day 8: OOP Concepts Overview</li>
+                            <li>Day 9: Classes and Objects</li>
+                            <li>Day 10: Constructors</li>
+                            <li>Day 11: Inheritance</li>
+                            <li>Day 12: Polymorphism</li>
+                            <li>Day 13: Encapsulation and Access Modifiers</li>
+                            <li>Day 14: Weekend Review/Practice</li>
+                        </ul>
+                
+                        <h3>Week 3: Exception Handling and Collections</h3>
+                        <ul>
+                            <li>Day 15: Exception Handling Basics</li>
+                            <li>Day 16: Handling Multiple Exceptions</li>
+                            <li>Day 17: Introduction to Java Collections</li>
+                            <li>Day 18: Lists (ArrayList, LinkedList)</li>
+                            <li>Day 19: Sets (HashSet, TreeSet)</li>
+                            <li>Day 20: Maps (HashMap, TreeMap)</li>
+                            <li>Day 21: Weekend Review/Practice</li>
+                        </ul>
+                
+                        <h3>Week 4: Intermediate Java Topics</h3>
+                        <ul>
+                            <li>Day 22: File I/O Basics</li>
+                            <li>Day 23: Working with Files (Reading/Writing)</li>
+                            <li>Day 24: Introduction to Java GUI (Swing)</li>
+                            <li>Day 25: Building Basic GUI Applications</li>
+                            <li>Day 26: Event Handling in GUI</li>
+                            <li>Day 27: Review Java Fundamentals</li>
+                            <li>Day 28: Weekend Test/Quiz</li>
+                        </ul>
+                    </ul>
+                
+                    <h3>Month 2: Data Structures and Algorithms</h3>
+                    <ul>
+                        <h3>Week 5: Data Structures - Sorting Algorithms</h3>
+                        <ul>
+                            <li>Day 29: Introduction to Sorting Algorithms</li>
+                            <li>Day 30: Bubble Sort and Selection Sort</li>
+                            <li>Day 31: Insertion Sort</li>
+                            <li>Day 32: Merge Sort</li>
+                            <li>Day 33: Quick Sort</li>
+                            <li>Day 34: Sorting Problems Practice</li>
+                            <li>Day 35: Weekend Review/Practice</li>
+                        </ul>
+                
+                        <h3>Week 6: Data Structures - Searching Algorithms</h3>
+                        <ul>
+                            <li>Day 36: Introduction to Searching Algorithms</li>
+                            <li>Day 37: Linear Search</li>
+                            <li>Day 38: Binary Search</li>
+                            <li>Day 39: Depth-first Search (DFS)</li>
+                            <li>Day 40: Breadth-first Search (BFS)</li>
+                            <li>Day 41: Search Algorithm Problems Practice</li>
+                            <li>Day 42: Weekend Test on Sorting and Searching</li>
+                        </ul>
+                
+                        <h3>Week 7: Recursion and Dynamic Programming</h3>
+                        <ul>
+                            <li>Day 43: Introduction to Recursion</li>
+                            <li>Day 44: Recursive vs Iterative Solutions</li>
+                            <li>Day 45: Dynamic Programming Basics</li>
+                            <li>Day 46: Solving Problems with Recursion</li>
+                            <li>Day 47: Solving Problems with Dynamic Programming</li>
+                            <li>Day 48: Review Recursion and DP Problems</li>
+                            <li>Day 49: Weekend Review/Practice</li>
+                        </ul>
+                
+                        <h3>Week 8: Trees and Binary Trees</h3>
+                        <ul>
+                            <li>Day 50: Introduction to Trees</li>
+                            <li>Day 51: Binary Trees and Binary Search Trees (BST)</li>
+                            <li>Day 52: Tree Traversal (Inorder, Preorder, Postorder)</li>
+                            <li>Day 53: Balanced Trees (AVL Trees)</li>
+                            <li>Day 54: Heap Data Structures</li>
+                            <li>Day 55: Tree Problems Practice</li>
+                            <li>Day 56: Weekend Review/Practice</li>
+                        </ul>
+                    </ul>
+                
+                    <h3>Month 3: Advanced Data Structures, JDBC, and Project</h3>
+                    <ul>
+                        <h3>Week 9: Graphs</h3>
+                        <ul>
+                            <li>Day 57: Introduction to Graphs</li>
+                            <li>Day 58: Graph Representation (Adjacency Matrix, List)</li>
+                            <li>Day 59: Graph Traversal (DFS, BFS)</li>
+                            <li>Day 60: Shortest Path Algorithms (Dijkstra, Bellman-Ford)</li>
+                            <li>Day 61: Topological Sorting</li>
+                            <li>Day 62: Graph Problems Practice</li>
+                            <li>Day 63: Weekend Review/Practice</li>
+                        </ul>
+                
+                        <h3>Week 10: Hashing and More DSA</h3>
+                        <ul>
+                            <li>Day 64: Introduction to Hashing</li>
+                            <li>Day 65: Hash Tables and Hash Maps</li>
+                            <li>Day 66: Collision Resolution Techniques (Chaining, Open Addressing)</li>
+                            <li>Day 67: Applications of Hashing</li>
+                            <li>Day 68: Linked List Advanced Problems</li>
+                            <li>Day 69: Stack and Queue Advanced Problems</li>
+                            <li>Day 70: Weekend Test on DSA</li>
+                        </ul>
+                
+                        <h3>Week 11: Introduction to JDBC and Project Work</h3>
+                        <ul>
+                            <li>Day 71: Introduction to JDBC</li>
+                            <li>Day 72: Setting Up JDBC in Java</li>
+                            <li>Day 73: Connecting to Databases with JDBC</li>
+                            <li>Day 74: Performing CRUD Operations with JDBC</li>
+                            <li>Day 75: Using Prepared Statements</li>
+                            <li>Day 76: Database Transactions and JDBC</li>
+                            <li>Day 77: Weekend Project Planning</li>
+                        </ul>
+                
+                        <h3>Week 12: Final Project (Extended Days)</h3>
+                        <ul>
+                            <li>Day 78: Project Implementation (Part 1)</li>
+                            <li>Day 79: Project Implementation (Part 2)</li>
+                            <li>Day 80: Project Implementation (Part 3)</li>
+                            <li>Day 81: Project Testing and Debugging</li>
+                            <li>Day 82: Project Refinement (Add Features)</li>
+                            <li>Day 83: JDBC Integration in Project</li>
+                            <li>Day 84: Code Optimization and Best Practices</li>
+                            <li>Day 85: Project Testing (Part 2)</li>
+                        </ul>
+                
+                        <h3>Week 13: Finalizing Project and Review</h3>
+                        <ul>
+                            <li>Day 86: Final Testing and Debugging</li>
+                            <li>Day 87: Refining Project Based on Feedback</li>
+                            <li>Day 88: Documentation and Report Preparation</li>
+                            <li>Day 89: Final Project Submission</li>
+                            <li>Day 90: Course Wrap-up and Feedback Session</li>
+                        </ul>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <script>
+                function toggleContent(id) {
+                    var content = document.getElementById(id);
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                }
+            </script>
+                        
+            </div>   
+            </div>
+       
+            <footer class="footer-copy">
+                <p >&copy; <span id="current-year"></span> AGM GROUPS. All Rights Reserved.</p>
+            </footer> 
+            <script>
+                const currentYear = new Date().getFullYear();
+                document.getElementById('current-year').textContent = currentYear;
+            </script>  
+    <script>
+        function showBooklet() {
+            document.querySelector('.book-image').style.display = 'none'; // Hide the book image
+            document.querySelector('.booklet').style.display = 'flex'; // Show the booklet
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const isVisible = content.style.display === 'block';
+
+            // Hide all contents
+            document.querySelectorAll('.content').forEach((el) => {
+                el.style.display = 'none';
+                el.style.opacity = 0; // Reset opacity for fade-in effect
+            });
+
+            if (!isVisible) {
+                content.style.display = 'block'; // Show the selected content
+                setTimeout(() => { // Allow time for display to take effect
+                    content.style.opacity = 1; // Fade in
+                }, 10);
+            }
+        }
+    </script>
+</body>
+</html>

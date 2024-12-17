@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="J3xhgoQPGNk_mZjrmg_Xxw2es16KxDihqgGdpxkM-QA" />
+    <meta name="google-site-verification" content="wBYGxLLPGcx5la702twlgUhLOwt7I5TIN7_KAQbxPxQ" />
+    <title>Interactive Study Plan Booklet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .book-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .book-image img {
+            width: 250px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .book-image img:hover {
+            transform: scale(1.1);
+        }
+
+        .booklet {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Prevent overflow */
+            flex: 1; /* Allow it to grow */
+        }
+
+        .left-panel {
+            flex: 1;
+            background: #53917E;
+            color: #000; /* Set text color to black */
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 80vh; /* Set maximum height for scrolling */
+        }
+
+        h1, h2 {
+            margin: 0 0 10px 0;
+            color: black; /* Set headings to black */
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            opacity: 0; /* Start invisible */
+            transition: opacity 0.5s ease; /* Fade effect */
+        }
+
+        .content h3 {
+            margin-top: 0;
+            color: black; /* Set week headings to black */
+        }
+
+        .content li {
+            color: black; /* Set day list items to black */
+        }
+
+        .footer-copy {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0; /* Remove margin */
+        }
+
+        .footer-copy p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .footer-copy a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-copy a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            padding: 0; /* Remove left and right padding from the container */
+        }
+
+        .branch {
+            cursor: pointer;
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            color: black; /* Set branch text color to black */
+        }
+
+        .branch:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .book-image img {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-image img {
+                width: 100px;
+            }
+
+            .left-panel {
+                padding: 15px;
+            }
+        }
+
+        
+.footer-copy {
+   background-color: #333;
+   color: #fff;
+   text-align: center;
+   padding: 20px;
+   position: fixed; /* Fixed footer */
+   bottom: 0;
+   width: 100%;
+   font-family: 'Open Sans', sans-serif;
+   margin-top: 30px; /* Adds space above the footer */
+}
+
+.footer-copy p {
+   margin: 0;
+   font-size: 16px;
+}
+
+.footer-copy a {
+   color: #007bff;
+   text-decoration: none;
+}
+
+.footer-copy a:hover {
+   text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="book-image">
+        <img src="./images/Python-Symbol.png" alt="Book" onclick="showBooklet()">
+        <h2>Click here to Start</h2>
+    </div>
+
+    <div class="booklet">
+        <div class="left-panel">
+            <h1>Specific Course: Python Development</h1>
+            <p>Learn the fundamentals of Python and object-oriented programming to build a strong foundation for implementing programs and projects. Explore advanced topics, database integration, and develop complete Python applications with real-world functionalities.</p>
+            <h2>Course Highlights</h2>
+            <ul>
+                <li><strong>15 Days:</strong> Learn Fundamentals of python and object-oriented programming.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Outcome:</em> Overall Understanding about the Concept and implementing the program</li>
+                <li><strong>1 Month:</strong> Gain foundational skills in Python                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Outcome:</em> Implement various Project</li>
+                <li><strong>3 Months:</strong> Explore advanced topics and project development.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Outcome:</em> Develop a complete python program with database integration and advanced functionalities.</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;Hands-on projects and real-world applications throughout the course.</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;Understand the implementation of Database management, Modules and Packages Creation.</li>
+            </ul>
+            
+            
+            
+            <img src="./images//Python_image.webp" alt="Course Image" style="width: 100%; height: 300px; margin-bottom: 20px; border-radius: 5px;"> <!-- Course Image -->
+            <h2>Course Duration</h2>
+           
+            <div class="study-plan">
+                <h1>Comprehensive Learning Plan for Java</h1>
+            
+                <!-- 15 Days Plan -->
+                <div class="branch" onclick="toggleContent('day15')">15 Days</div>
+                <div class="content" id="day15">
+                    <h3>Week 1: Introduction to Python</h3>
+                    <ul>
+                        <li>Day 1: Introduction to Python</li>
+                        <li>Day 2: Python Interpreter</li>
+                        <li>Day 3: Basic Syntax and Structure</li>
+                        <li>Day 4: Variables and Data Types</li>
+                        <li>Day 5: Control Flow (if, switch, loops)</li>
+                        <li>Day 6: Project - Simple Console Application</li>
+                    </ul>
+                    <h3>Week 2: Object-Oriented Programming (OOP)</h3>
+                    <ul>
+                        <li>Day 7: Introduction to OOP Concepts</li>
+                        <li>Day 8: Classes and Objects</li>
+                        <li>Day 9: Inheritance and Polymorphism</li>
+                        <li>Day 10: Encapsulation and Abstraction</li>
+                        <li>Day 11: Interfaces and Abstract Classes</li>
+                        <li>Day 12: Project - OOP-based Python Program</li>
+                    </ul>
+                    <h3>Week 3: Advanced Python Topics</h3>
+                    <ul>
+                        <li>Day 13: Exception Handling</li>
+                        <li>Day 14: File I/O in Java</li>
+                        <li>Day 15: List Dictionary Tuple and Functions</li>
+                    </ul>
+                </div>
+            
+                <!-- 1 Month (30 Days) Plan -->
+                <div class="branch" onclick="toggleContent('month1')">1 Month</div>
+                <div class="content" id="month1">
+<h3>Week 1: Python Fundamentals</h3>
+                    <ul>
+                        <li>Day 1: Introduction to Python </li>
+                        <li>Day 2: Basic Syntax and Variables</li>
+                        <li>Day 3: Execute python from Command line</li>
+                        <li>Day 4: Python Reserved Words and Comments</li>
+                        <li>Day 5: Standard data types and Operators</li>
+                        <li>Day 6: Project</li>
+                    </ul>
+            
+                    <h3>Week 2: Control Statements</h3>
+                    <ul>
+                        <li>Day 7: Control flow & syntax, indenting</li>
+                        <li>Day 8: Looping Staements</li>
+                        <li>Day 9: List & Dictionary </li>
+                        <li>Day 10: Tuple and Functions</li>
+                        <li>Day 11: String operation</li>
+                        <li>Day 12: Project</li>
+                    </ul>
+            
+
+                    <h3>Week 3: Functions</h3>
+                    <ul>
+                        <li>Day 13: Functions</li>
+                        <li>Day 14: Built-in functions</li>
+                        <li>Day 15: Scope Type conversion & Type corecion</li>
+                        <li>Day 16: Passing Function to Functions & Mapping functions</li>
+                        <li>Day 17: Lambda and modules/li>
+                        <li>Day 18: Project - Create a File-Based Student Management System</li>
+                    </ul>
+            
+                    <h3>Week 4: Exception Handling and File I/O</h3>
+                    <ul>
+                        <li>Day 19: Understanding Exceptions</li>
+                        <li>Day 20: Try, Catch, and Finally</li>
+                        <li>Day 21: Using Standard Library Function</li>
+                        <li>Day 22: File Reading and Writing in Python</li>
+                        <li>Day 23: Methods of file objects</li>
+                        <li>Day 24: Project - Create a File-Based Student Management System</li>
+                    </ul>
+            
+                    <h3>Week 5: Object-Oriented Features</h3>
+                    <ul>
+                        <li>Day 25: Creating classes and instance methods</li>
+                        <li>Day 26: File Organization</li>
+                        <li>Day 27: Class Variables, Inheritance, Polymorphism & Type identification</li>
+                        <li>Day 28: Special Characters & Quantifiers</li>
+                        <li>Day 29: Dot character & Greedy</li>
+                        <li>Day 30: Project</li>
+                    </ul>
+                </div>
+            
+                <!-- 3 Month (90 Days) Plan -->
+                <div class="branch" onclick="toggleContent('month3')">3 Months</div>
+                <div class="content" id="month3">
+                    <h3>Month 1: Python Fundamentals</h3>
+                    <ul>
+                        <h3>Week 1: Python Basics</h3>
+                        <ul>
+                            <li>Day 1: Introduction to Python </li>
+                            <li>Day 2: Basic Syntax and Variables</li>
+                            <li>Day 3: Execute python from Command line</li>
+                            <li>Day 4: Python Reserved Words and Comments</li>
+                            <li>Day 5: Standard data types and Operators</li>
+                            <li>Day 6: Milestone-1</li>
+                        </ul>
+                
+                        <h3>Week 2: Functions</h3>
+                        <ul>
+                            <li>Day 7: Strings and String Operations</li>
+                            <li>Day 8: List and Dictionary Operations</li>
+                            <li>Day 9:Tuples and Functions</li>
+	       <li>Day 10:Formal arguments</li>
+                            <li>Day 11: Exception Detecting and Handling</li>
+                            <li>Day 12: Milestone-2</li>
+                        </ul>
+                
+                        <h3>Week 3: OOP in Python</h3>
+                        <ul>
+                            <li>Day 13: Classes and Instances</li>
+                            <li>Day 14: Binding and method invoction</li>
+                            <li>Day 15: Inheritance</li>
+                            <li>Day 16: Polymorphism</li>
+                            <li>Day 17: Built-in functions for classes and instances</li>
+                            <li>Day 18: Milestone-3</li>
+                        </ul>
+                
+                        <h3>Week 4: File Handling</h3>
+                        <ul>
+                            <li>Day 19: Introduction to File handling</li>
+                            <li>Day 20: IO Files and reading and writing Files</li>
+                            <li>Day 21: Methods of file objects</li>
+                            <li>Day 22: Using standard library funcions</li>
+                            <li>Day 23: Overall Review of the concept</li>
+                            <li>Day 24: Milestone-4</li>
+                        </ul>
+                    </ul>
+                
+                    <h3>Month 2: Intermediate Concepts</h3>
+                    <ul>
+                        <h3>Week 5: Exception Handling</h3>
+                        <ul>
+                            <li>Day 25: Overview of Exception</li>
+                            <li>Day 26: Default Exception Handler</li>
+                            <li>Day 27: Types Of exception</li>
+                            <li>Day 28:  Built-in and User-defined Exception handling</li>
+                            <li>Day 29: Overall Review of  the concept</li>
+                            <li>Day 30: Milestone-5</li>
+                        </ul>
+                
+                        <h3>Week 6: Database</h3>
+                        <ul>
+                            <li>Day 31: Introduction to Database</li>
+                            <li>Day 32:Database Application Programmer's Interface</li>
+                            <li>Day 33: Database Connections</li>
+                            <li>Day 34: Executing querries and transactions</li>
+                            <li>Day 35: Handling errors</li>
+                            <li>Day 36: Milestone-6</li>
+                        </ul>
+                
+                        <h3>Week 7: Packages</h3>
+                        <ul>
+                            <li>Day 37: Overview of Packages and Modules</li>
+                            <li>Day 38: Difference between user defined and pre defined modules</li>
+                            <li>Day 39: Creating and Importing packages</li>
+                            <li>Day 40: Overall review of the concept</li>
+                            <li>Day 41: Creating a demo packages and modules</li>
+                            <li>Day 42: Milestone-7</li>
+                        </ul>
+                
+                        <h3>Week 8: Multithreading</h3>
+                        <ul>
+                            <li>Day 43: What is Multithreading</li>
+                            <li>Day 44: Starting a new thread</li>
+                            <li>Day 45: Threading Module</li>
+                            <li>Day 46: Overall Review of the concept</li>
+                            <li>Day 47: Demo Program</li>
+	       <li>Day 48: Milestone-8</li>
+                        </ul>
+                    </ul>
+                
+                    <h3>Month 3: Advanced Topics and Deployment</h3>
+                    <ul>
+                        <h3>Week 9: Deep into Modules</h3>
+                        <ul>
+                            <li>Day 49: Numpy</li>
+                            <li>Day 50: Pandas</li>
+                            <li>Day 51: Pygame</li>
+                            <li>Day 52: Basics and overall review of the concept</li>
+                            <li>Day 53: Project - Implementing the modules </li>
+                            <li>Day 54: Project - Implementing the modules</li>
+                        </ul>
+                <h3>Week 10: SMTP </h3>
+                        <ul>
+                            <li>Day 55: SMTP module for email</li>
+                            <li>Day 56: Installing SMTP module</li>
+                            <li>Day 57: Working with SMTP</li>
+                            <li>Day 58: Overall review of the concept</li>
+                            <li>Day 59:Demo Model</li>
+                            <li>Day 60: Milestone-9</li>
+                        </ul>
+ 
+                
+                        <h3>Week 11: Github </h3>
+                        <ul>
+                            <li>Day 61: What is Github</li>
+                            <li>Day 62: Setting Up Git</li>
+                            <li>Day 63: Basic Commands</li>
+                            <li>Day 64: Collaborating with GitHub</li>
+                            <li>Day 65:Overall Review of the concept</li>
+                            <li>Day 66: Use Git to manage your project repository</li>
+                        </ul>
+                
+                        <h3>Week 12: General Discussion</h3>
+                        <ul>
+                            <li>Day 67-68:Overll review of 3 months session </li>
+                            <li>Day 69:Explanation about project work</li>
+                            <li>Day 70: Querry Session-1</li>
+                            <li>Day 71: Querry Session-2</li>
+                            <li>Day 72: Final Milestone</li>
+                        </ul>
+                
+                        <h3>Week 13: Final Project </h3>
+                        <ul>
+                            <li>Day 73: Choosing a Project title</li>
+                            <li>Day 74: Team Formation</li>
+                            <li>Day 75-78: Development Time-1</li>
+                        </ul>
+                
+                        <h3>Week 14: Final Project</h3>
+                        <ul>
+                            <li>Day 79: First Review</li>
+                            <li>Day 80: Corrections in project</li>
+                            <li>Day 81-84: Development Time-2</li>
+</ul>
+                
+                        <h3>Week 15: Final Projects and Review</h3>
+                        <ul>
+                            <li>Day 85: Second Review</li>
+                            <li>Day 86: Corrections</li>
+                            <li>Day 87: Development Time</li>
+                            <li>Day 88: Peer Review and Feedback</li>
+                            <li>Day 89: Final Touches and Deployment</li>
+                            <li>Day 90: Presentation of Final Projects</li>
+                        </ul>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <script>
+                function toggleContent(id) {
+                    var content = document.getElementById(id);
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                }
+            </script>
+                        
+            </div>   
+            </div>
+       
+            <footer class="footer-copy">
+                <p >&copy; <span id="current-year"></span> AGM GROUPS. All Rights Reserved.</p>
+            </footer> 
+            <script>
+                const currentYear = new Date().getFullYear();
+                document.getElementById('current-year').textContent = currentYear;
+            </script>  
+    <script>
+        function showBooklet() {
+            document.querySelector('.book-image').style.display = 'none'; // Hide the book image
+            document.querySelector('.booklet').style.display = 'flex'; // Show the booklet
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const isVisible = content.style.display === 'block';
+
+            // Hide all contents
+            document.querySelectorAll('.content').forEach((el) => {
+                el.style.display = 'none';
+                el.style.opacity = 0; // Reset opacity for fade-in effect
+            });
+
+            if (!isVisible) {
+                content.style.display = 'block'; // Show the selected content
+                setTimeout(() => { // Allow time for display to take effect
+                    content.style.opacity = 1; // Fade in
+                }, 10);
+            }
+        }
+    </script>
+</body>
+</html>
